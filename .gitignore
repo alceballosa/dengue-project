@@ -18,6 +18,13 @@ __pycache__/
 # C extensions
 *.so
 
+# Carpetas locales
+
+local/
+.ipynb_checkpoints/
+/.venv
+
+
 # Distribution / packaging
 .Python
 env/
