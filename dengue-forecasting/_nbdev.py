@@ -2,9 +2,9 @@
 
 __all__ = ["index", "modules", "custom_doc_links", "git_url"]
 
-index = {"suma_de_arreglo": "01_preprocessing.ipynb"}
+index = {}
 
-modules = ["preprocessing.py"]
+modules = []
 
 doc_url = "https://alceballosa.github.io/dengue-forecasting/"
 
