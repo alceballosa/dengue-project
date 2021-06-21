@@ -1,7 +1,6 @@
 import glob
 import itertools
 import os
-
 from datetime import datetime
 from itertools import chain
 
@@ -38,8 +37,8 @@ def re_assert_cod_datatypes(df):
     for col in df.columns:
         if col in dtypes.keys():
             df[col] = df[col].astype(dtypes[col])
-            if col == "SEMANA":
-                df[col] = df[col].apply(lambda x: str(x).zfill(2))
+            if col == "SEMANA" or col == "COD_DPTO":
+                df[col] = df[col].apply(lambda x: str(int(x)).zfill(2))
     return df
 
 
@@ -422,3 +421,12 @@ def imput_with_wind_mean_of_week(df_weekly):
                     week, col
                 ]
     return df_weekly_imputed
+
+def municipality_name_to_filename(name):
+    name = name.lower()
+    name = name.replace(" ","_")
+    name = name.replace("á","a")
+    name = name.replace("ó","o")
+    name = name.replace("í","i")
+    name = name.replace("ú","u")
+    return name
