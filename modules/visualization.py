@@ -5,11 +5,16 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 from matplotlib.patches import Rectangle
 from statsmodels.tsa.seasonal import seasonal_decompose
+import pandas as pd
 
-sns.set_style("ticks")
-plt.rcParams["font.family"] = "Helvetica"
-plt.rcParams.update({"font.size": 12})
+path_base = "./local/data/"
+df_municipios = pd.read_csv(path_base+"src_general/departments.csv", dtype={'COD_MUNICIPIO':str})
 
+def municipality_codes_to_names(codigo):
+    codigos = df_municipios["COD_MUNICIPIO"].values
+    nombres = df_municipios["MUNICIPIO"].values
+    dict_muns = {(codigos[i]):nombres[i].title() for i in range(len(codigos))}
+    return dict_muns[codigo]
 
 def plot_time_series(
     ax,
@@ -22,8 +27,9 @@ def plot_time_series(
     y_label,
     xlim=None,
     ylim=None,
-    kind="lineplot",
     fulldates=False,
+    axvline = None,
+    area_plot = True,
 ):
     """
     Function to plot time series:
@@ -49,7 +55,10 @@ def plot_time_series(
         ax.xaxis.set_major_formatter(years_format)
         ax.xaxis.set_minor_locator(months_locator)
 
-    if kind == "lineplot":
+
+    if xlim:
+        ax.set_xlim(xlim)
+    if area_plot:
         sns.lineplot(
             x=dates_array[0],
             y=values_array[0],
@@ -57,10 +66,6 @@ def plot_time_series(
             color=colors[0],
             ax=ax,
         )
-
-    rotation = 45
-    #     ax.setp(ax.get_xticklabels(), rotation=rotation)
-    if len(values_array) > 1:
         ax.fill_between(
             x=dates_array[0],
             y1=values_array[1],
@@ -68,13 +73,49 @@ def plot_time_series(
             color=colors[1],
             alpha=0.15,
             label=labels[1],
-        )  # Min
+        )
+    else:
+        for i in range(len(dates_array)):
+            sns.lineplot(
+                x=dates_array[i],
+                y=values_array[i],
+                label=labels[i],
+                color=colors[i],
+                ax=ax,
+            )
+        # Min
+    # rotation = 45
+    # ax.setp(ax.get_xticklabels(), rotation=rotation)
+    if axvline:
+        ax.axvline(x=axvline, ls='--', label = "COVID-19 arrival date", color = "black")
     ax.set_xlabel(x_label, fontsize="12")
     ax.set_ylabel(y_label, fontsize="12")
     ax.set_title(title, fontsize="14")
     if ylim:
         ax.set_ylim(ylim)
-    if xlim:
-        ax.set_xlim(xlim)
-    ax.legend()
+
+    ax.legend(loc="upper left", frameon = False)
     sns.despine()
+
+
+def plot_monthly_boxplot(
+    ax,
+    dates_array,
+    values_array,
+    title,
+    x_label,
+    y_label,
+    ylim=None
+):
+
+    sns.set_style("ticks")
+    ax.ticklabel_format(axis="y", style="plain")
+    sns.boxplot(x=dates_array[0], y=values_array[0], ax=ax)
+    ax.set_xlabel(x_label, fontsize="12")
+    ax.set_ylabel(y_label, fontsize="12")
+    ax.set_title(title, fontsize="14")
+    if ylim:
+        ax.set_ylim(ylim)
+
+    sns.despine()
+
