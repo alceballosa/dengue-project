@@ -119,7 +119,7 @@ def download_file_departments(
 
 def download_rutinarias(route="./local/data/src_general/rutinarias_dengue/"):
     # Alternate path:
-    rutinarias = [str(i) for i in range(2007, 2020)] + ["2020p", "2021p"]
+    rutinarias = [str(i) for i in range(2007, 2022)]
     for rutinaria in rutinarias:
         filename = "rutinaria_" + rutinaria + ".xlsx"
         url = f"http://portalsivigila.ins.gov.co/VigilanciaRutinaria/rutinaria_{rutinaria}.xlsx"
@@ -225,7 +225,7 @@ def download_data_with_selenium(
             elem.click()
             elem.send_keys(variable)
             elem.send_keys(Keys.ENTER)
-            time.sleep(1)
+            time.sleep(3)
             input_element = driver.find_element_by_xpath(
                 '//*[@id="DatosBuscar"]/tbody/tr[1]/td[1]/input'
             )

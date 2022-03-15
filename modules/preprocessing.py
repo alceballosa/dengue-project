@@ -17,7 +17,7 @@ from sklearn.impute import IterativeImputer
 from sklearn.linear_model import BayesianRidge
 from xgboost import XGBRegressor
 
-WEEKS_YEAR = {2019: 52, 2020: 53, 2021: 12}
+WEEKS_YEAR = {2019: 52, 2020: 53, 2021: 52}
 
 
 #####################
@@ -132,14 +132,15 @@ def get_time_series_from_municipio_subset(subset_mun, event_col_n, cod_eve, year
         series_index = get_index_from_col_and_string(
             subset_mun, subset_mun.columns[event_col_n], cod_eve
         )
-        series = list(subset_mun.loc[series_index, :][6:])
+        series = list(subset_mun.loc[series_index, :][6:])[0:WEEKS_YEAR[year]]
     except Exception as e:
         series = [0] * WEEKS_YEAR[year]
     return series
 
 
 def get_index_from_col_and_string(df, col, string):
-    return df[df.loc[:, col] == string].index[0]
+
+    return df[df.loc[:, col].astype(str) == string].index[0]
 
 
 def dataframe_from_dengue_series(series, value_name, year):
