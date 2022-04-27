@@ -1,15 +1,15 @@
-department,municipality,code,dl_folder,starting_date,stations_temp,stations_hum,stations_prec,stations_rad,range_temp,range_hum
-Antioquia,Medellín,05001,MEDELLIN_DATA,2011/05/20,"[27015330, 27015310, 27015300]","[27015330, 27015310, 27015300]","[27015330, 27015290, 27011270]",[],"[15.5, 37.5]","[15, 99.99]"
-Magdalena,Santa Marta,47001,SANTA_MARTA_DATA,2008/06/28,[15015120],[15015120],"[15015050, 15010501, 15015120]",[],"[17.5, 40]","[40, 99.99]"
-Santander,Bucaramanga,68001,BUCARAMANGA_DATA,2014/12/11,[23195230],[23195230],[23195230],[],"[17, 40]","[30, 99.99]"
-Atlántico,Barranquilla,08001,SOLEDAD_BARRANQUILLA_DATA,2013/05/03,"[29045190, 29004520]",[29045190],"[29045120, 29040450, 29045190]",[],"[22, 45]","[45, 99.99]"
-Atlántico,Soledad,08758,SOLEDAD_BARRANQUILLA_DATA,2007/01/01,[],[],[],[],[],[]
-Norte de Santander,Cúcuta,54001,CUCUTA_DATA,2006-09-03,"[16015110, 16015501]","[16015110, 16015501]","[16015110, 16015010, 16015501]",[],"[17.5, 45]","[30, 99.99]"
-Valle del Cauca,Cali,76001,CALI_DATA,2006/11/24,"[26085170, 26055120]","[26085170, 26055120]","[26055120, 26080310, 26085170]",[],"[16.5, 45]","[30, 99.99]"
-Valle del Cauca,Palmira,76563,CALI_DATA,2006/11/24,[],[],[],[],[],[]
-Caquetá,Villavicencio,50001,VILLAVICENCIO_DATA,2007/03/18,"[35035100, 35025110]","[35035100, 35025110]","[35030380, 35030370, 35030100, 35035020]",[],"[20, 45]","[35, 99.99]"
-Tolima,Ibagué,73001,IBAGUE_DATA,2007/01/01,[],[],[],[],[],[]
-Córdoba,Montería,23001,MONTERIA_DATA,2007/01/01,[],[],[],[],"[22, 45]","[45, 99.99]"
-Antioquia,Bello,05088,MEDELLIN_DATA,2007/01/01,[],[],[],[],"[22, 45]","[45, 99.99]"
-Amazonas,Leticia,91001,LETICIA_DATA,2014/07/31,"[48015010, 48015050]","[48015010, 48015050]","[48015050, 48015010]",[],"[22, 45]","[55, 120]"
-Amazonas,Puerto Nariño,91540,PUERTO_NAR_DATA,2007/01/01,[],[],[48015040],[],"[22, 45]","[5, 120]"
+department,municipality,code,lat,lon,dl_folder,starting_date,stations_temp,stations_hum,stations_prec,stations_rad,range_temp,range_hum
+Antioquia,Medellín,05001,6.242666578494031,-75.58964032887556,MEDELLIN_DATA,2009-04-01,"[27015330, 'meteostat',27015300]","[27015330,'meteostat',27015300]","[27015330, 27015290, 27011270]",[],"[15.5, 37.5]","[15, 99.99]"
+Magdalena,Santa Marta,47001,,,SANTA_MARTA_DATA,2008-06-28,[15015120],[15015120],"[15015050, 15010501, 15015120]",[],"[17.5, 40]","[40, 99.99]"
+Santander,Bucaramanga,68001,,,BUCARAMANGA_DATA,2014-12-11,[23195230],[23195230],[23195230],[],"[17, 40]","[30, 99.99]"
+Atlántico,Barranquilla,08001,,,SOLEDAD_BARRANQUILLA_DATA,2013-05-03,"[29045190, 29004520]",[29045190],"[29045120, 29040450, 29045190]",[],"[22, 45]","[45, 99.99]"
+Atlántico,Soledad,08758,,,SOLEDAD_BARRANQUILLA_DATA,2007-01-01,[],[],[],[],[],[]
+Norte de Santander,Cúcuta,54001,7.904337817837809, -72.51145902967927,CUCUTA_DATA,2006-09-03,"[16015110, 16015501, 'meteostat']","[16015110, 16015501, 'meteostat']","['meteostat',16015110, 16015010, 16015501]",[],"[17.5, 42.5]","[30, 99.99]"
+Valle del Cauca,Cali,76001,3.4136282825278563, -76.51748445057298,CALI_DATA,2006-11-24,"[26085170, 'meteostat',26055120]","[26085170,'meteostat', 26055120]","[26055120, 26080310, 26085170]",[],"[16.5, 45]","[30, 99.99]"
+Valle del Cauca,Palmira,76563,,,CALI_DATA,2006-11-24,[],[],[],[],[],[]
+Caquetá,Villavicencio,50001,,,VILLAVICENCIO_DATA,2007-03-18,"[35035100, 35025110]","[35035100, 35025110]","[35030380, 35030370, 35030100, 35035020]",[],"[20, 45]","[35, 99.99]"
+Tolima,Ibagué,73001,,,IBAGUE_DATA,2007-01-01,[],[],[],[],[],[]
+Córdoba,Montería,23001,,,MONTERIA_DATA,2007-01-01,[],[],[],[],"[22, 45]","[45, 99.99]"
+Antioquia,Bello,05088,,,MEDELLIN_DATA,2007-01-01,[],[],[],[],"[22, 45]","[45, 99.99]"
+Amazonas,Leticia,91001,-4.187927917620779, -69.94860551602554,LETICIA_DATA,2008-06-01,"[48015010, 'meteostat', 48015050]","[48015010, 'meteostat', 48015050]","[48015050, 48015010]",[],"[18, 42]","[65, 120]"
+Amazonas,Puerto Nariño,91540,,,PUERTO_NAR_DATA,2007-01-01,[],[],[48015040],[],"[22, 45]","[5, 120]"

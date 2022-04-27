@@ -1,9 +1,0 @@
-department,municipality,code,dl_folder,starting_date,stations_temp,stations_hum,stations_prec,stations_rad,range_temp,range_hum
-Antioquia,Medellín,05001,MEDELLIN_DATA,,,,"[27015330, 27011270, 27015290, 27011270]",,"[15,40]",
-Magdalena,Santa Marta,47001,SANTA_MARTA_DATA,,,,,,None,
-Santander,Bucaramanga,68001,SANTANDER_DATA,,,,,,,
-Atlántico,Barranquilla,08001,BARRANQUILLA_SOLEDAD_DATA,,,,,,,
-Atlántico,Soledad,08758,BARRANQUILLA_SOLEDAD_DATA,,,,,,,
-Norte de Santander,Cúcuta,54001,CUCUTA_DATA,,,,,,,
-Valle del Cauca,Cali,76001,CALI_DATA,,,,,,,
-Caquetá,Villavicencio,50001,VILLAVICENCIO_DATA,,,,,,,

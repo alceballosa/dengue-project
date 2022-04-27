@@ -97,7 +97,7 @@ def unify_column_names_dengue(columns):
 
 
 def get_dengue_weeks_from_rutinaria(filename, codes, sheet_num, year):
-    df = pd.read_excel(filename, sheet_name=sheet_num)
+    df = pd.read_excel(filename, sheet_name=sheet_num, engine="openpyxl")
     df.columns = unify_column_names_dengue(list(df.columns))
     df["ANO"] = year
     df = df[~df["COD_DPTO"].isin([0, 1])]
@@ -263,13 +263,21 @@ def filter_entries_by_column_index_values(df, column_name, min_val=None, max_val
         return df
 
 
-def combine_IDEAM_stations(df_all, stations_priority):
+def combine_IDEAM_stations(df_all, stations_priority, do_mean_adjust = False):
     df_st = df_all[df_all["CodigoEstacion"] == stations_priority[0]]
-    if len(df_all) == 1:
+    mean_df_st = df_st.mean()
+    df_st = df_st.dropna()
+    if len(stations_priority) == 1:
         return df_st
     for station in stations_priority[1:]:
+
+
         df_st_add = df_all[df_all["CodigoEstacion"] == station]
+        df_st_add = df_st_add.dropna()
         df_st_add = df_st_add[(~df_st_add.index.isin(df_st.index))]
+        if do_mean_adjust:
+            mean_add = mean_df_st - df_st_add.mean()
+            df_st_add = df_st_add + mean_add
         df_st = pd.concat([df_st, df_st_add])
     del df_st["CodigoEstacion"]
     return df_st

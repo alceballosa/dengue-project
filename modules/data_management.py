@@ -119,6 +119,7 @@ def download_file_departments(
 
 def download_rutinarias(route="./local/data/src_general/rutinarias_dengue/"):
     # Alternate path:
+    os.makedirs(route, exist_ok = True)
     rutinarias = [str(i) for i in range(2007, 2022)]
     for rutinaria in rutinarias:
         filename = "rutinaria_" + rutinaria + ".xlsx"
